@@ -1,0 +1,52 @@
+{% import "_includes/forms" as forms %}
+{% extends "_layouts/cp" %}
+{% set title = 'Redirects' %}
+
+
+{% block content %}
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <form action="" method="post">
+        {{ csrfInput() }}
+        {{ actionInput('redirects/redirects/save') }}
+
+        {{ forms.textField({
+            label: 'From',
+            instructions: 'Enter the URL that you what to redirect',
+            name: 'fromURL',
+            required: true
+        }) }}
+ 
+        {{ forms.textField({
+            label: 'To',
+            instructions: 'Enter the Redirect URL',
+            name: 'toURL',
+            required: true
+        }) }}
+
+        {{ forms.lightswitchField({
+            label: 'Include Subpages',
+            name: 'subpages',
+            on: false
+        }) }}
+
+        <input type="submit" class="submit btn" value="Add Redirect">
+    
+    </form>
+
+
+    <script>
+        function formSubmit() {
+            return {
+                formData: {
+                    from: "",
+                    to: "",
+                    subpages: false
+                },
+                submitForm(){
+                    console.log(JSON.stringify(this.formData));
+                }
+            }
+        }
+    </script>
+{% endblock %}

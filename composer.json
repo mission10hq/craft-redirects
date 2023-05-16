@@ -1,0 +1,32 @@
+{
+    "name": "mission10/craft-redirects",
+    "description": "allows users to add redirects without regex",
+    "version": "1.0.0",
+    "type": "craft-plugin",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Cameron Hay"
+      }
+    ],
+    "support": {
+      "email": "email@developer-website.tld",
+      "issues": "https://github.com/developer/repo/issues?state=open",
+      "source": "https://github.com/developer/repo",
+      "docs": "https://github.com/developer/repo/blob/master/README.md"
+    },
+    "require": {
+      "craftcms/cms": "^3.1.0",
+      "ether/seo": "^3.7"
+    },
+    "autoload": {
+      "psr-4": {
+        "mission10\\redirects\\": "src/"
+      }
+    },
+    "extra": {
+      "name": "Redirects",
+      "handle": "redirects",
+      "class": "mission10\\redirects\\Redirects"
+    }
+  }
