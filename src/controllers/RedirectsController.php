@@ -18,15 +18,25 @@ class RedirectsController extends Controller {
             $session->setError("You haven't filled required fields");
         }else {
             $fromResult = $this->getPathFromUrl($from);
-            $toResult = $this->getPathFromUrl($to);
-            $from = $subpages == true ? $fromResult['path'] . "($|\/(.*)$|\?.*|\/$|\/\?.*|$)" : $fromResult['path'] . "(\?.*|\/$|\/\?.*|$)";
-            $to = $toResult['path'] . '$1';
             
+            $from = $subpages == true ? $fromResult['path'] . "($|\/(.*)$|\?.*|\/$|\/\?.*|$)" : $fromResult['path'] . "(\?.*|\/$|\/\?.*|$)";
+            $to = $this->checkToUrl($to);
+            
+            Redirects::$plugin->redirects->save($from,$to);
             $session->setNotice('Redirect Added');
         }
         
-        Redirects::$plugin->redirects->save($from,$to);
 
+    }
+
+    private function checkToUrl($to){
+        if($to == "/"){
+            return $to . '$1';
+        }else{
+            $toResult = $this->getPathFromUrl($to);
+            $to = $toResult['path'] . '$1';
+            return $to;
+        }
     }
 
     private function getPathFromUrl($url) {
