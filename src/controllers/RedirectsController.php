@@ -18,14 +18,14 @@ class RedirectsController extends Controller {
             $session->setError("You haven't filled required fields");
         }else {
             $fromResult = $this->getPathFromUrl($from);
-            
+
             $from = $subpages == true ? $fromResult['path'] . "($|\/(.*)$|\?.*|\/$|\/\?.*|$)" : $fromResult['path'] . "(\?.*|\/$|\/\?.*|$)";
             $to = $this->checkToUrl($to);
-            
-            Redirects::$plugin->redirects->save($from,$to);
+
             $session->setNotice('Redirect Added');
         }
         
+        Redirects::$plugin->redirects->save($from,$to);
 
     }
 
@@ -45,6 +45,6 @@ class RedirectsController extends Controller {
         $query = $parsedUrl['query'] ?? '';
 
         return ['path' => $path, 'query' => $query];
-    } 
+    }
 
 }
