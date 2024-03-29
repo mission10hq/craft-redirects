@@ -1,7 +1,6 @@
 {
     "name": "mission10/craft-redirects",
     "description": "allows users to add redirects without regex",
-    "version": "1.0.0",
     "type": "craft-plugin",
     "license": "MIT",
     "authors": [
