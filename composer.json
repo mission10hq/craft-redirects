@@ -15,8 +15,8 @@
       "docs": "https://github.com/developer/repo/blob/master/README.md"
     },
     "require": {
-      "craftcms/cms": "^3.1.0",
-      "ether/seo": "^3.7"
+      "craftcms/cms": "^4.0.0-alpha",
+      "ether/seo": "^4"
     },
     "autoload": {
       "psr-4": {
@@ -27,5 +27,11 @@
       "name": "Redirects",
       "handle": "redirects",
       "class": "mission10\\redirects\\Redirects"
+    },
+    "config": {
+        "allow-plugins": {
+            "craftcms/plugin-installer": true,
+            "yiisoft/yii2-composer": true
+        }
     }
-  }
+}

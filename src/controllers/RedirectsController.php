@@ -6,7 +6,7 @@ use mission10\redirects\Redirects;
 
 class RedirectsController extends Controller {
 
-    public function actionSave(){
+    public function actionSave(): void{
         $req = \Craft::$app->getRequest();
         $session = \Craft::$app->getSession();
 

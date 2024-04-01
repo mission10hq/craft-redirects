@@ -10,11 +10,11 @@ use mission10\redirects\services\RedirectsService;
  */
 class Redirects extends \craft\base\Plugin {
     
-    public $hasCpSection = true; 
+    public bool $hasCpSection = true; 
 
     public static $plugin;
     
-    public function init(){
+    public function init(): void{
         parent::init();
         
         self::$plugin = $this;

@@ -7,7 +7,7 @@ use mission10\redirects\records\RedirectsRecord;
 
 class RedirectsService extends Component {
 
-    public function save($from,$to){
+    public function save($from,$to): void{
         
         $record = new RedirectsRecord();
 
