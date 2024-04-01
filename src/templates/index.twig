@@ -24,11 +24,26 @@
             required: true
         }) }}
 
-        {{ forms.lightswitchField({
-            label: 'Include Subpages',
-            name: 'subpages',
-            on: false
-        }) }}
+        <div style="display: flex; gap:20px; margin-bottom: 20px;">
+
+            <div>
+                {{ forms.lightswitchField({
+                    label: 'Include Subpages',
+                    name: 'subpages',
+                    on: false,
+                    style: 'margin-right: 10px;'
+                }) }}
+            </div>
+
+            <div>
+                {{ forms.lightswitchField({
+                    label: 'External Redirect',
+                    name: 'external',
+                    on: false
+                })}}
+            </div>
+            
+        </div>
 
         <input type="submit" class="submit btn" value="Add Redirect">
     
